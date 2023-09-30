@@ -1,9 +1,11 @@
 let main = document.querySelector('.main')
-let inventory = document.querySelector('.inventory')
+let inventoryModal = document.querySelector('.inventory')
 let stevePositionX = 3;
 let stevePositionY = 6;
-let inventoryBlock = document.querySelectorAll('.inventory_block')
-let cross = document.querySelector('.cross') 
+let inventoryBlocks = document.querySelectorAll('.inventory_block');
+let cross = document.querySelector('.cross');
+
+let inventory = {}
 
 let map = [
     ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
@@ -47,25 +49,14 @@ const fillGame = function() {
             let block = document.createElement("div")
             let hp = 0;
             block.classList.add("block")
-            if(item === "grass"){
-                block.classList.add("grass")
-            }else if(item === "ground"){
-                block.classList.add("ground")
-            }else if(item === "wood"){
-                block.classList.add("wood")
-            }else if(item === "leaf"){
-                block.classList.add("leaf")
-            }else if(item === "Steve"){
-                block.classList.add("Steve")
-            }
+            block.classList.add(item)
             block.addEventListener('click', ()=>{
                 hp ++
                 if (hp >= hpMap[item]) {
                     hp = 0
                     console.log(item)
-                    inventoryBlock[0].style.background = `url(img/${item}.png) center center / cover no-repeat`;
-                    inventoryBlock[0].style.backgroundSize = '70% 90%';
-                    inventoryBlock[0].style.backgroundColor = 'rgb(136, 136, 136)'
+                    inventory[item] = inventory[item] ? inventory[item] + 1 : 1
+                    console.log(inventory)
                     map[i][j] = 'empty';
                     fillGame()
                 }
@@ -114,14 +105,15 @@ document.addEventListener('keydown', function(event){
 })
 document.addEventListener('keydown', function(event){
     if(event.code === 'KeyE'){
-        inventory.classList.add('active')
+        inventoryModal.classList.add('active')
     }
+
 })
 document.addEventListener('keydown', (e)=>{
     if(e.code == 'Escape'){
-        inventory.classList.remove('active')
+        inventoryModal.classList.remove('active')
     }
 })
 cross.addEventListener('click', ()=>{
-    inventory.classList.remove('active')
+    inventoryModal.classList.remove('active')
 })
