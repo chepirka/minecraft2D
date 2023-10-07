@@ -38,6 +38,8 @@ const hpMap = {
     wood: 3,
     leaf: 1
 };
+
+
 const fillGame = function() {
     map[stevePositionY][stevePositionX] = 'Steve';
     main.innerHTML = '';
