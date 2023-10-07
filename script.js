@@ -20,6 +20,10 @@ let map = [
     ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
 ];
 
+const inventoryPut = ()=>{
+    inventoryBlocks[0]
+}
+
 
 let setHPAtribute = (block, hp, i, j)=>{
     block.setAttribute('hp', hp)
@@ -119,3 +123,4 @@ document.addEventListener('keydown', (e)=>{
 cross.addEventListener('click', ()=>{
     inventoryModal.classList.remove('active')
 })
+
