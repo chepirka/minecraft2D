@@ -5,7 +5,12 @@ let stevePositionY = 6;
 let inventoryBlocks = document.querySelectorAll('.inventory_block');
 let cross = document.querySelector('.cross');
 
-let inventory = {}
+const inventory = {
+    grass: 0,
+    ground: 0,
+    wood: 0,
+    leaf: 0
+}
 
 let map = [
     ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
@@ -39,15 +44,13 @@ const hpMap = {
 };
 
 let inventoryFill = ()=>{
-    inventoryBlocks.forEach((obj, ind, arr)=>{
-        for(item in inventory){
-            let block = document.createElement("div")
-            block.classList.add(item)
-            block.classList.add("inventory_item")
-            inventoryBlocks[ind].append(block)
-            console.log(inventory)
+    let i = 0
+    for(item in inventory) {
+        if (inventory[item]) {
+            inventoryBlocks[i].classList.add(item)
+            i++
         }
-    })
+    }
 }
 
 const fillGame = function() {
@@ -129,6 +132,5 @@ document.addEventListener('keydown', (e)=>{
 })
 cross.addEventListener('click', ()=>{
     inventoryModal.classList.remove('active')
-    
 })
 
