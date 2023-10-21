@@ -139,5 +139,7 @@
 .number{
     width: 30%;
     height: 40%;
-    background-color: rgb(136, 136, 136);
+    color: white;
+    margin-top: 35%;
+    margin-left: 60%;
 }
