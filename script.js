@@ -43,7 +43,7 @@ const hpMap = {
     leaf: 1
 };
 
-let inventoryFill = ()=>{
+const inventoryFill = ()=>{
     let i = 0
     for(item in inventory) {
         if (inventory[item]) {
@@ -51,6 +51,22 @@ let inventoryFill = ()=>{
             i++
         }
     }
+}
+const classDelete = ()=>{
+    inventoryBlocks.forEach((item, index, array)=>{
+        if(item.classList.contains("grass")){
+            item.classList.remove("grass")  
+        }
+        else if(item.classList.contains("ground")){
+            item.classList.remove("ground")  
+        }
+        else if(item.classList.contains("wood")){
+            item.classList.remove("wood")  
+        }
+        else{
+            item.classList.remove("leaf")  
+        }
+    })
 }
 
 const fillGame = function() {
@@ -128,9 +144,10 @@ document.addEventListener('keydown', function(event){
 document.addEventListener('keydown', (e)=>{
     if(e.code == 'Escape'){
         inventoryModal.classList.remove('active')
+        classDelete()
     }
 })
 cross.addEventListener('click', ()=>{
     inventoryModal.classList.remove('active')
+    classDelete()
 })
-
