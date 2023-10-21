@@ -20,11 +20,6 @@ let map = [
     ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
 ];
 
-const inventoryPut = ()=>{
-    inventoryBlocks[0]
-}
-
-
 let setHPAtribute = (block, hp, i, j)=>{
     block.setAttribute('hp', hp)
     block.addEventListener('click', ()=>{
@@ -43,6 +38,17 @@ const hpMap = {
     leaf: 1
 };
 
+let inventoryFill = ()=>{
+    inventoryBlocks.forEach((obj, ind, arr)=>{
+        for(item in inventory){
+            let block = document.createElement("div")
+            block.classList.add(item)
+            block.classList.add("inventory_item")
+            inventoryBlocks[ind].append(block)
+            console.log(inventory)
+        }
+    })
+}
 
 const fillGame = function() {
     map[stevePositionY][stevePositionX] = 'Steve';
@@ -112,6 +118,7 @@ document.addEventListener('keydown', function(event){
 document.addEventListener('keydown', function(event){
     if(event.code === 'KeyE'){
         inventoryModal.classList.add('active')
+        inventoryFill()
     }
 
 })
@@ -122,5 +129,6 @@ document.addEventListener('keydown', (e)=>{
 })
 cross.addEventListener('click', ()=>{
     inventoryModal.classList.remove('active')
+    
 })
 

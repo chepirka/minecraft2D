@@ -23,7 +23,7 @@
 .ground{
     background: url(img/ground.png) center center / cover no-repeat;
     background-size: 70% 90%;
-        background-color:rgb(197, 197, 197);
+    background-color:rgb(197, 197, 197);
 }
 .wood{
     background: url(img/wood.png) center center / cover no-repeat;
@@ -129,4 +129,9 @@
     background: url(img/cross.svg) center center / cover no-repeat;
     margin-top: -15px;
     margin-left: 900px;
+}
+.inventory_item{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(136, 136, 136);
 }
