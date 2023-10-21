@@ -4,7 +4,6 @@ let stevePositionX = 3;
 let stevePositionY = 6;
 let inventoryBlocks = document.querySelectorAll('.inventory_block');
 let cross = document.querySelector('.cross');
-let span = document.querySelectorAll('.number')
 
 const inventory = {
     grass: 0,
@@ -49,7 +48,6 @@ const inventoryFill = ()=>{
     for(item in inventory) {
         if (inventory[item]) {
             inventoryBlocks[i].classList.add(item)
-            span.innerHTML = item
             i++
         }
     }
