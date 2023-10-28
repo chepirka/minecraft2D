@@ -51,6 +51,11 @@
     background-size: 70% 90%;
     background-color:rgb(197, 197, 197);
 }
+.wooden_axe{
+    background: url(img/wooden_axe.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color:rgb(197, 197, 197);
+}
 .Steve{
     background: url(img/Steve.png) center center / cover no-repeat;
     background-size: 70% 90%;
