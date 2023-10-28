@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 .str{
     width: 100vw;
@@ -28,12 +29,27 @@
 .wood{
     background: url(img/wood.png) center center / cover no-repeat;
     background-size: 70% 90%;
-        background-color:rgb(197, 197, 197);
+    background-color:rgb(197, 197, 197);
 }
 .leaf{
     background: url(img/leaf.png) center center / cover no-repeat;
     background-size: 70% 90%;
-        background-color:rgb(197, 197, 197);
+    background-color:rgb(197, 197, 197);
+}
+.stone{
+    background: url(img/stone.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color:rgb(197, 197, 197);
+}
+.iron{
+    background: url(img/iron.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color:rgb(197, 197, 197);
+}
+.coal{
+    background: url(img/coal.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color:rgb(197, 197, 197);
 }
 .Steve{
     background: url(img/Steve.png) center center / cover no-repeat;
@@ -141,5 +157,6 @@
     height: 40%;
     color: white;
     margin-top: 35%;
-    margin-left: 60%;
+    margin-left: 70%;
+    text-align: center;
 }
