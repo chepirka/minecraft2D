@@ -186,3 +186,4 @@ cross.addEventListener('click', () => {
     inventoryModal.classList.remove('active')
     classDelete()
 })
+1
