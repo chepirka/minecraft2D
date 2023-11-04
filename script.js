@@ -136,11 +136,13 @@ document.addEventListener('keydown', function (event) {
 document.addEventListener('keydown', function (event) {
     if (event.code === 'KeyW') {
         if (map[stevePositionY - 1]?.[stevePositionX] === "empty") {
+            console.log(currentLvl)
             map[stevePositionY][stevePositionX] = 'empty';
             stevePositionY = stevePositionY - 1;
             fillGame();
         }
-        else if(currentLvl > 0 && map[stevePositionY + 1]?.[stevePositionX] === "empty"){
+        else if(currentLvl > 0){
+            console.log(currentLvl - 1)
             map[stevePositionY][stevePositionX] = 'empty';
             stevePositionY = 9;
             currentLvl = currentLvl - 1;
