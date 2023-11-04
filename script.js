@@ -29,16 +29,16 @@ const lvl1 =
     ];
 
 const lvl2 = [
-    ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
-    ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
-    ["stone", "stone", "coal", "stone", "stone", "stone", "stone", "iron", "iron", "stone", "stone", "stone", "stone", "stone", "stone"],
-    ["stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    ["stone", "iron", "stone", "stone", "iron", "iron", "stone", "stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone"],
-    ["iron", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "coal", "coal", "stone", "iron", "stone", "stone", "stone"],
-    ["stone", "stone", "coal", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone"],
-    ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "iron", "stone", "stone", "stone"]
+    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
+    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
+    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
+    // ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
+    // ["stone", "stone", "coal", "stone", "stone", "stone", "stone", "iron", "iron", "stone", "stone", "stone", "stone", "stone", "stone"],
+    // ["stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
+    // ["stone", "iron", "stone", "stone", "iron", "iron", "stone", "stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone"],
+    // ["iron", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "coal", "coal", "stone", "iron", "stone", "stone", "stone"],
+    // ["stone", "stone", "coal", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone"],
+    // ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "iron", "stone", "stone", "stone"]
 ]
 
 
@@ -65,6 +65,12 @@ const hpMap = {
     iron: 12,
     coal: 8
 };
+
+const mapElementsLVL2p = {
+    stone: 5,
+    iron: 12,
+    coal: 8
+}
 
 const inventoryFill = () => {
     let i = 0
@@ -169,6 +175,7 @@ document.addEventListener('keydown', function (event) {
             map[stevePositionY][stevePositionX] = 'empty';
             stevePositionY = 0;
             currentLvl = currentLvl + 1;
+            randomMapFill(lvl2);
             fillGame();
         }
     }
@@ -190,3 +197,22 @@ cross.addEventListener('click', () => {
     inventoryModal.classList.remove('active')
     classDelete()
 })
+const MathRandom = (arr)=>{
+    const max = arr.length;
+    let rand = Math.floor(Math.random() * max);
+    console.log(arr[rand])
+    return arr[rand]
+}
+
+let test = Object.keys(mapElementsLVL2p);
+let test2 = test.length;
+
+const randomMapFill = (map)=>{
+    for(let x = 0; x < 10; x++){
+        map[x] = [];
+        for(let i = 0; i < 15; i++){
+            map[x][i] = [];
+            map[x][i].push(MathRandom(test))
+        }
+    }
+}
