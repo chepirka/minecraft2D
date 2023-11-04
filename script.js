@@ -29,16 +29,16 @@ const lvl1 =
     ];
 
 const lvl2 = [
-    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
-    // ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
-    // ["stone", "stone", "coal", "stone", "stone", "stone", "stone", "iron", "iron", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "iron", "stone", "stone", "iron", "iron", "stone", "stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["iron", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "coal", "coal", "stone", "iron", "stone", "stone", "stone"],
-    // ["stone", "stone", "coal", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone"],
-    // ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "iron", "stone", "stone", "stone"]
+    ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
+    ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
+    ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
+    ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
+    ["stone", "stone", "coal", "stone", "stone", "stone", "stone", "iron", "iron", "stone", "stone", "stone", "stone", "stone", "stone"],
+    ["stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
+    ["stone", "iron", "stone", "stone", "iron", "iron", "stone", "stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone"],
+    ["iron", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "coal", "coal", "stone", "iron", "stone", "stone", "stone"],
+    ["stone", "stone", "coal", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone"],
+    ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "iron", "stone", "stone", "stone"]
 ]
 
 
@@ -141,6 +141,7 @@ document.addEventListener('keydown', function (event) {
             fillGame();
         }
         else if(currentLvl > 0 && map[stevePositionY + 1]?.[stevePositionX] === "empty"){
+            map[stevePositionY][stevePositionX] = 'empty';
             stevePositionY = 9;
             currentLvl = currentLvl - 1;
             fillGame();
@@ -163,6 +164,7 @@ document.addEventListener('keydown', function (event) {
             stevePositionY = stevePositionY + 1;
             fillGame();
         } else if (!map[stevePositionY + 1] && lvls[currentLvl + 1]){
+            map[stevePositionY][stevePositionX] = 'empty';
             stevePositionY = 0;
             currentLvl = currentLvl + 1;
             fillGame();
