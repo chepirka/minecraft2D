@@ -67,9 +67,11 @@ const hpMap = {
 };
 
 const mapElementsLVL2p = {
-    stone: 5,
-    iron: 12,
-    coal: 8
+    //Цифра - вероятность выпадения блока в %
+    //в сумме должно быть 100
+    stone: 85,
+    iron: 5,
+    coal: 10
 }
 
 const inventoryFill = () => {
@@ -197,22 +199,38 @@ cross.addEventListener('click', () => {
     inventoryModal.classList.remove('active')
     classDelete()
 })
-const MathRandom = (arr)=>{
-    const max = arr.length;
-    let rand = Math.floor(Math.random() * max);
-    console.log(arr[rand])
-    return arr[rand]
+
+// const MathRandom = (arr)=>{
+//     const max = arr.length;
+//     let rand = Math.floor(Math.random() * max);
+//     console.log(arr[rand])
+//     return arr[rand]
+// }
+
+const getRandomElement = ()=>{
+    let k = Math.random();
+
+    if(k < 0.85){
+        b = 0 //b = stone
+    }
+    else if(k > 0.85 && k < 0.95){
+        b = 2 //b = coal
+    }
+    else{
+        b = 1 //b = iron
+    }
+    return mapElements[b]
 }
 
-let test = Object.keys(mapElementsLVL2p);
-let test2 = test.length;
+let mapElements = Object.keys(mapElementsLVL2p);
 
 const randomMapFill = (map)=>{
     for(let x = 0; x < 10; x++){
         map[x] = [];
         for(let i = 0; i < 15; i++){
             map[x][i] = [];
-            map[x][i].push(MathRandom(test))
+            map[x][i].push(getRandomElement())
         }
     }
+
 }
