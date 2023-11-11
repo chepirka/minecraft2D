@@ -1,17 +1,26 @@
-let main = document.querySelector('.main')
-let inventoryModal = document.querySelector('.inventory')
+let main = document.querySelector('.main');
+let inventoryModal = document.querySelector('.inventory');
 let stevePositionX = 3;
 let stevePositionY = 6;
 let currentLvl = 0;
 let inventoryBlocks = document.querySelectorAll('.inventory_block');
 let cross = document.querySelector('.cross');
-let number = document.querySelectorAll('.number')
+let number = document.querySelectorAll('.number');
+let woodenAxe = document.querySelector('.axe');
+let woodenPick = document.querySelector('.pick');
+let instruments = document.querySelector('.fastCraftWindow__instruments');
+let wooden_instrument = document.querySelector('.wooden_instrument');
+let stone_instrument = document.querySelector('.stone_instrument')
+let iron_instrument = document.querySelector('.iron_instrument')
+let diamond_instrument = document.querySelector('.diamond_instrument')
 
 const inventory = {
     grass: 0,
+    woodenAxe: 0,
     ground: 0,
     wood: 0,
-    leaf: 0
+    leaf: 0,
+    woodenPick: 0
 }
 
 const lvl1 =
@@ -96,8 +105,24 @@ const classDelete = () => {
         else if (item.classList.contains("wood")) {
             item.classList.remove("wood")
         }
-        else {
+        else if(item.classList.contains("leaf")) {
             item.classList.remove("leaf")
+        }
+        else if(item.classList.contains("woodenAxe")){
+            item.classList.remove("woodenAxe")
+        }
+        else if(item.classList.contains("woodenPick")){
+            item.classList.remove("woodenPick")
+        }
+    })
+}
+const instrumentClassDelete = ()=>{
+    instruments.forEach((item, index, array) => {
+        if (item.classList.contains("woodenAxe")) {
+            item.classList.remove("woodenAxe")
+        }
+        else if (item.classList.contains("woodenPick")) {
+            item.classList.remove("woodenPick")
         }
     })
 }
@@ -177,7 +202,6 @@ document.addEventListener('keydown', function (event) {
             map[stevePositionY][stevePositionX] = 'empty';
             stevePositionY = 0;
             currentLvl = currentLvl + 1;
-            randomMapFill(lvl2);
             fillGame();
         }
     }
@@ -199,13 +223,6 @@ cross.addEventListener('click', () => {
     inventoryModal.classList.remove('active')
     classDelete()
 })
-
-// const MathRandom = (arr)=>{
-//     const max = arr.length;
-//     let rand = Math.floor(Math.random() * max);
-//     console.log(arr[rand])
-//     return arr[rand]
-// }
 
 const getRandomElement = ()=>{
     let k = Math.random();
@@ -234,3 +251,41 @@ const randomMapFill = (map)=>{
     }
 
 }
+
+randomMapFill(lvl2);
+
+const stone = ()=>{
+    if(inventory['wood'] > 1 && inventory['stone'] > 3){
+        inventory['wood'] = inventory['wood'] - 1
+        inventory['stone'] = inventory['stone'] - 3
+        inventoryFill()
+    }
+}
+
+const iron = ()=>{
+    if(inventory['wood'] > 1 && inventory['iron'] > 0){
+        inventory['wood'] = inventory['wood'] - 1
+        inventory['iron'] = inventory['iron'] - 1
+        inventoryFill()
+    }
+}
+
+wooden_instrument.addEventListener('click', ()=>{
+})
+
+woodenAxe.addEventListener('click', ()=>{
+    if(inventory['wood'] > 1){
+        inventory['wood'] = inventory['wood'] - 2 
+        inventory['woodenAxe'] += 1
+        classDelete()
+        inventoryFill()
+    }
+})
+woodenPick.addEventListener('click', ()=>{
+    if(inventory['wood'] > 1){
+        inventory['wood'] = inventory['wood'] - 2 
+        inventory['woodenPick'] += 1
+        classDelete()
+        inventoryFill()
+    }
+})

@@ -51,11 +51,6 @@
     background-size: 70% 90%;
     background-color:rgb(197, 197, 197);
 }
-.wooden_axe{
-    background: url(img/wooden_axe.webp) center center / cover no-repeat;
-    background-size: 70% 90%;
-    background-color:rgb(197, 197, 197);
-}
 .Steve{
     background: url(img/Steve.png) center center / cover no-repeat;
     background-size: 70% 90%;
@@ -166,23 +161,88 @@
     text-align: center;
 }
 .fastCraftWindow{
-    width: 150px;
+    width: 130px;
     height: 200px;
-    margin-top: 15%;
+    margin-top: 5%;
     margin-left: 30px;
+}
+.fastCraftWindow__instruments{
+    width: 130px;
+    height: 30%;
     display: flex;
 }
-.wooden_axe{
+.axe{
     width: 50%;
-    height: 35%;
     background: url(img/wooden_axe.webp) center center / cover no-repeat;
     border: 3px solid rgb(214, 214, 214);
     background-color: rgb(136, 136, 136);
 }
-.wooden_pick{
+.pick{
     width: 50%;
-    height: 35%;
     background: url(img/wooden_pick.webp) center center / cover no-repeat;
     border: 3px solid rgb(214, 214, 214);
+    background-color: rgb(136, 136, 136);
+}
+.fastCraftWindow__materials{
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+.fastCraftWindow__materials_axe{
+    width: 50%;
+    height: 100%;
+}
+.fastCraftWindow__materials_pick{
+    width: 50%;
+    height: 100%;
+}
+.fastCraftWindow__materials_material{
+    width: 100%;
+    height: 50%;
+    color: white;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+.fastCraftWindow__varieties{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.fastCraftWindow__varieties_block{
+    width: 50%;
+    height: 50%;
+    border: 3px solid rgb(214, 214, 214);
+    background-color: rgb(136, 136, 136);
+}
+.wooden_instrument{
+    background: url(img/wood.png) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.stone_instrument{
+    background: url(img/stone.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.iron_instrument{
+    background: url(img/iron.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.diamond_instrument{
+    background: url(img/diamond.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.woodenAxe{
+    background: url(img/wooden_axe.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.woodenPick{
+    background: url(img/wooden_pick.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
     background-color: rgb(136, 136, 136);
 }
