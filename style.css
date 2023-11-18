@@ -173,13 +173,11 @@
 }
 .axe{
     width: 50%;
-    background: url(img/wooden_axe.webp) center center / cover no-repeat;
     border: 3px solid rgb(214, 214, 214);
     background-color: rgb(136, 136, 136);
 }
 .pick{
     width: 50%;
-    background: url(img/wooden_pick.webp) center center / cover no-repeat;
     border: 3px solid rgb(214, 214, 214);
     background-color: rgb(136, 136, 136);
 }
@@ -243,6 +241,36 @@
 }
 .woodenPick{
     background: url(img/wooden_pick.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.stoneAxe{
+    background: url(img/stone_axe.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.stonePick{
+    background: url(img/stone_pick.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.ironAxe{
+    background: url(img/iron_axe.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.ironPick{
+    background: url(img/iron_pick.webp)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.diamondAxe{
+    background: url(img/diamond_axe.png)center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color: rgb(136, 136, 136);
+}
+.diamondPick{
+    background: url(img/diamond_pick.webp)center center / cover no-repeat;
     background-size: 70% 90%;
     background-color: rgb(136, 136, 136);
 }
