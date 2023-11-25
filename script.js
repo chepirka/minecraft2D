@@ -13,14 +13,25 @@ let wooden_instrument = document.querySelector('.wooden_instrument');
 let stone_instrument = document.querySelector('.stone_instrument');
 let iron_instrument = document.querySelector('.iron_instrument');
 let diamond_instrument = document.querySelector('.diamond_instrument');
+let material = document.querySelectorAll('.fastCraftWindow__materials_material')
 
 const inventory = {
     grass: 0,
-    woodenAxe: 0,
     ground: 0,
     wood: 0,
     leaf: 0,
-    woodenPick: 0
+    coal: 0,
+    stone: 0,
+    iron: 0,
+    diamond: 0,
+    woodenAxe: 0,
+    woodenPick: 0,
+    stoneAxe: 0,
+    stonePick: 0,
+    ironAxe: 0,
+    ironPick: 0,
+    diamondAxe: 0,
+    diamondPick: 0
 };
 
 const lvl1 =
@@ -37,21 +48,11 @@ const lvl1 =
         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
     ];
 
-const lvl2 = [
-    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
-    // ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "coal", "coal", "stone"],
-    // ["stone", "stone", "coal", "stone", "stone", "stone", "stone", "iron", "iron", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["stone", "iron", "stone", "stone", "iron", "iron", "stone", "stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone"],
-    // ["iron", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "coal", "coal", "stone", "iron", "stone", "stone", "stone"],
-    // ["stone", "stone", "coal", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "stone", "stone", "stone"],
-    // ["stone", "coal", "stone", "stone", "stone", "stone", "stone", "stone", "stone", "iron", "stone", "iron", "stone", "stone", "stone"]
-];
+const lvl2 = [];
+const lvl3 = [];
 
 
-const lvls = [lvl1, lvl2];
+const lvls = [lvl1, lvl2, lvl3];
 let map = [];
 
 const setHPAtribute = (block, hp, i, j) => {
@@ -82,6 +83,14 @@ const mapElementsLVL2p = {
     iron: 5,
     coal: 10
 };
+const mapElementsLVL3p = {
+    //Цифра - вероятность выпадения блока в %
+    //в сумме должно быть 100
+    stone: 75,
+    iron: 10,
+    coal: 10,
+    diamond: 5
+};
 
 const inventoryFill = () => {
     let i = 0
@@ -94,61 +103,25 @@ const inventoryFill = () => {
     }
 };
 
-const classDelete = () => {
-    inventoryBlocks.forEach((item, index, array) => {
-        // item.classList.remove(item.classList[1])
-        // console.log(item.classList[1])
-        ["grass","ground", "wood", "leaf", "woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"].forEach(className => {
+const classDelete = (clas) => {
+    clas.forEach((item, index, array) => {
+        ["grass","ground", "wood", "stone", "iron", "diamond", "leaf", "woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"].forEach((className) => {
             if (item.classList.contains(className)) {
                 item.classList.remove(className);
+                number.forEach((item) => {
+                    item.innerHTML = ' '
+                })
             }
         })
-        // if (item.classList.contains("grass")) {
-        //     item.classList.remove("grass");
-        // }
-        // else if (item.classList.contains("ground")) {
-        //     item.classList.remove("ground");
-        // }
-        // else if (item.classList.contains("wood")) {
-        //     item.classList.remove("wood");
-        // }
-        // else if(item.classList.contains("leaf")) {
-        //     item.classList.remove("leaf");
-        // }
-        // else if(item.classList.contains("woodenAxe")){
-        //     item.classList.remove("woodenAxe");
-        // }
-        // else if(item.classList.contains("woodenPick")){
-        //     item.classList.remove("woodenPick");
-        // }
     })
 };
 const instrumentClassDelete = ()=>{
-    instruments.forEach((item, index, array) => {
-        if (item.classList.contains("woodenAxe")) {
-            item.classList.remove("woodenAxe");
-        }
-        else if (item.classList.contains("woodenPick")) {
-            item.classList.remove("woodenPick");
-        }
-        else if (item.classList.contains("stoneAxe")) {
-            item.classList.remove("stoneAxe");
-        }
-        else if (item.classList.contains("stonePick")) {
-            item.classList.remove("stonePick");
-        }
-        else if (item.classList.contains("ironAxe")) {
-            item.classList.remove("ironAxe");
-        }
-        else if (item.classList.contains("ironPick")) {
-            item.classList.remove("ironPick");
-        }
-        else if (item.classList.contains("diamondAxe")) {
-            item.classList.remove("diamondAxe");
-        }
-        else if (item.classList.contains("diamondPick")) {
-            item.classList.remove("diamondPick");
-        }
+    instruments.forEach((item)=>{
+        ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"].forEach((instrumentName) => {
+            if (item.classList.contains(instrumentName)) {
+                item.classList.remove(instrumentName);
+            }
+        })
     })
 };
 
@@ -241,12 +214,12 @@ document.addEventListener('keydown', function (event) {
 document.addEventListener('keydown', (e) => {
     if (e.code == 'Escape') {
         inventoryModal.classList.remove('active');
-        classDelete();
+        classDelete(inventoryBlocks);
     }
 });
 cross.addEventListener('click', () => {
     inventoryModal.classList.remove('active')
-    classDelete();
+    classDelete(inventoryBlocks);
 });
 
 const getRandomElement = ()=>{
@@ -279,54 +252,92 @@ const randomMapFill = (map)=>{
 
 randomMapFill(lvl2);
 
-const stone = ()=>{
-    if(inventory['wood'] > 1 && inventory['stone'] > 3){
-        inventory['wood'] = inventory['wood'] - 1;
-        inventory['stone'] = inventory['stone'] - 3;
-        inventoryFill();
-    }
-};
-
-const iron = ()=>{
-    if(inventory['wood'] > 1 && inventory['iron'] > 0){
-        inventory['wood'] = inventory['wood'] - 1;
-        inventory['iron'] = inventory['iron'] - 1;
-        inventoryFill();
-    }
-};
-
 const instrumentsFill = (axe, pick)=>{
     instrumentClassDelete();
+    classDelete(material);
     instruments[0].classList.add(axe)
     instruments[1].classList.add(pick)
+}
+const materialsFill = (materiall)=>{
+    if(materiall === 'wood'){
+        material[0].classList.add('wood')
+        material[0].innerHTML = 'x2'
+        material[2].classList.add('wood')
+        material[2].innerHTML = 'x2'
+        material[1].innerHTML = ' '
+        material[3].innerHTML = ' '
+    }else{
+        material[0].classList.add(materiall)
+        material[0].innerHTML = 'x3'
+        material[1].classList.add('wood')
+        material[1].innerHTML = 'x1'
+        material[2].classList.add(materiall)
+        material[2].innerHTML = 'x3'
+        material[3].classList.add('wood')
+        material[3].innerHTML = 'x1'
+    }
 }
 
 wooden_instrument.addEventListener('click', ()=>{
     instrumentsFill('woodenAxe', 'woodenPick')
+    materialsFill('wood')
 });
 stone_instrument.addEventListener('click', ()=>{
     instrumentsFill('stoneAxe', 'stonePick')
+    materialsFill('stone')
 });
 iron_instrument.addEventListener('click', ()=>{
     instrumentsFill('ironAxe', 'ironPick')
+    materialsFill('iron')
 })
 diamond_instrument.addEventListener('click', ()=>{
     instrumentsFill('diamondAxe', 'diamondPick')
+    materialsFill('diamond')
 })
 
-axe.addEventListener('click', ()=>{
-    if(inventory['wood'] > 1){
-        inventory['wood'] = inventory['wood'] - 2 ;
-        inventory['woodenAxe'] += 1;
-        classDelete();
+const mat = (item, instrum)=>{
+    if(inventory['wood'] > 0 && inventory[item] > 2){
+        inventory['wood'] = inventory['wood'] - 1;
+        inventory[item] = inventory[item] - 3;
+        inventory[instrum] += 1;
+        classDelete(inventoryBlocks);
         inventoryFill();
     }
+};
+
+const craft = (instrument)=>{
+    if(instrument.classList.contains('woodenAxe')){
+        if(inventory['wood'] > 2){
+            inventory['wood'] = inventory['wood'] - 2 ;
+            inventory['woodenAxe'] += 1;
+            classDelete(inventoryBlocks);
+            inventoryFill();  
+        }
+    }else if(instrument.classList.contains('woodenPick')){
+        if(inventory['wood'] > 2){
+            inventory['wood'] = inventory['wood'] - 2 ;
+            inventory['woodenPick'] += 1;
+            classDelete(inventoryBlocks);
+            inventoryFill(); 
+        }
+    }else if(instrument.classList.contains('stoneAxe')){
+        mat('stone', 'stoneAxe')
+    }else if(instrument.classList.contains('stonePick')){
+        mat('stone', 'stonePick')
+    }else if(instrument.classList.contains('ironAxe')){
+        mat('iron', 'ironAxe')
+    }else if(instrument.classList.contains('ironPick')){
+        mat('iron', 'ironPick')
+    }else if(instrument.classList.contains('diamondAxe')){
+        mat('diamond', 'diamondAxe')
+    }else if(instrument.classList.contains('diamondPick')){
+        mat('diamond', 'diamondPick')
+    }
+}
+
+axe.addEventListener('click', ()=>{
+    craft(axe)
 });
 pick.addEventListener('click', ()=>{
-    if(inventory['wood'] > 1){
-        inventory['wood'] = inventory['wood'] - 2;
-        inventory['woodenPick'] += 1;
-        classDelete();
-        inventoryFill();
-    }
+    craft(pick)
 });

@@ -46,6 +46,11 @@
     background-size: 70% 90%;
     background-color:rgb(197, 197, 197);
 }
+.diamond{
+    background: url(img/diamond.webp) center center / cover no-repeat;
+    background-size: 70% 90%;
+    background-color:rgb(197, 197, 197);
+}
 .coal{
     background: url(img/coal.webp) center center / cover no-repeat;
     background-size: 70% 90%;
