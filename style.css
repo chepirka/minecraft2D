@@ -15,6 +15,7 @@
     height: 100%;
     border: 1px solid black;
     background-color:rgb(197, 197, 197);
+    position: relative;
 }
 .grass{
     background: url(img/grass.png) center center / cover no-repeat;
@@ -95,7 +96,7 @@
     width: 10%;
     height: 100%;
     border: 3px solid rgb(214, 214, 214);
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(136, 136, 136) !important;
     display: flex;
 }
 .armor__window{
@@ -107,12 +108,14 @@
     height: 25%;
     width: 90%;
     border: 3px solid rgb(214, 214, 214);
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(136, 136, 136) !important;
 }
 .armorBlock{
     height: 100%;
     width: 70%;
     background-color: black;
+    background: url(img/steve_inv.webp) center center / cover no-repeat;
+    background-size: 60% 100%;
 }
 .blockk{
     width: 20%;
@@ -165,6 +168,13 @@
     margin-left: 70%;
     text-align: center;
 }
+.steve_number{
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 .fastCraftWindow{
     width: 130px;
     height: 200px;
@@ -179,12 +189,12 @@
 .axe{
     width: 50%;
     border: 3px solid rgb(214, 214, 214);
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(136, 136, 136) !important;
 }
 .pick{
     width: 50%;
     border: 3px solid rgb(214, 214, 214);
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(136, 136, 136) !important;
 }
 .fastCraftWindow__materials{
     width: 100%;
@@ -242,40 +252,33 @@
 .woodenAxe{
     background: url(img/wooden_axe.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
+    background-color: none;
 }
 .woodenPick{
     background: url(img/wooden_pick.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }
 .stoneAxe{
     background: url(img/stone_axe.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }
 .stonePick{
     background: url(img/stone_pick.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }
 .ironAxe{
     background: url(img/iron_axe.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }
 .ironPick{
     background: url(img/iron_pick.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }
 .diamondAxe{
     background: url(img/diamond_axe.png)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }
 .diamondPick{
     background: url(img/diamond_pick.webp)center center / cover no-repeat;
     background-size: 70% 90%;
-    background-color: rgb(136, 136, 136);
 }

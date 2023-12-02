@@ -14,6 +14,20 @@ let stone_instrument = document.querySelector('.stone_instrument');
 let iron_instrument = document.querySelector('.iron_instrument');
 let diamond_instrument = document.querySelector('.diamond_instrument');
 let material = document.querySelectorAll('.fastCraftWindow__materials_material')
+let armor_block = document.querySelector('.armor_block')
+let inst;
+
+armor_block.addEventListener('dragover', (e)=>{
+    e.preventDefault();
+
+})
+armor_block.addEventListener('drop', (block)=>{
+    armorDelete(armor_block)
+    armorDelete(steve)
+    console.log(inst)
+    armor_block.classList.add(inst)
+    steve.classList.add(inst)
+})
 
 const inventory = {
     grass: 0,
@@ -76,6 +90,19 @@ const hpMap = {
     coal: 8
 };
 
+const tools = ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"];
+
+const toolInfo = {
+    woodenAxe: {
+        block: ['wood'],
+        demage: 1
+    },
+    woodenPick: {
+        block: ['stone', 'coal'],
+        demage: 2
+    },
+}
+
 const mapElementsLVL2p = {
     //Цифра - вероятность выпадения блока в %
     //в сумме должно быть 100
@@ -97,6 +124,15 @@ const inventoryFill = () => {
     for (item in inventory) {
         if (inventory[item]) {
             inventoryBlocks[i].classList.add(item);
+            tools.forEach((instrumentName) => {
+                if(inventoryBlocks[i].classList.contains(instrumentName)){
+                    inventoryBlocks[i].setAttribute('draggable', true);
+                    inventoryBlocks[i].addEventListener('dragstart', ()=>{
+                        console.log("f" + instrumentName)
+                        inst = instrumentName;
+                    })
+                }
+            })
             number[i].innerHTML = inventory[item];
             i++;
         }
@@ -105,7 +141,7 @@ const inventoryFill = () => {
 
 const classDelete = (clas) => {
     clas.forEach((item, index, array) => {
-        ["grass","ground", "wood", "stone", "iron", "diamond", "leaf", "woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"].forEach((className) => {
+        ["grass","ground", "wood", "stone", "iron", "diamond", "leaf"].concat(tools).forEach((className) => {
             if (item.classList.contains(className)) {
                 item.classList.remove(className);
                 number.forEach((item) => {
@@ -117,13 +153,23 @@ const classDelete = (clas) => {
 };
 const instrumentClassDelete = ()=>{
     instruments.forEach((item)=>{
-        ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"].forEach((instrumentName) => {
+        tools.forEach((instrumentName) => {
             if (item.classList.contains(instrumentName)) {
                 item.classList.remove(instrumentName);
             }
         })
     })
 };
+const armorDelete = (elem)=>{
+    tools.forEach((instrumentName) => {
+        if (elem.classList.contains(instrumentName)) {
+            elem.classList.remove(instrumentName);
+        }
+    })
+}
+
+let steve = document.createElement('div')
+steve.classList.add('steve_number')
 
 const fillGame = function () {
     map = lvls[currentLvl];
@@ -136,8 +182,12 @@ const fillGame = function () {
         mapRow.forEach((item, j, arr) => {
             let block = document.createElement("div");
             let hp = 0;
+            console.log(item)
             block.classList.add("block");
             block.classList.add(item);
+            if(block.classList.contains("Steve")){
+                block.append(steve)
+            }
             block.addEventListener('click', () => {
                 hp++;
                 if (hp >= hpMap[item]) {
@@ -307,14 +357,14 @@ const mat = (item, instrum)=>{
 
 const craft = (instrument)=>{
     if(instrument.classList.contains('woodenAxe')){
-        if(inventory['wood'] > 2){
+        if(inventory['wood'] > 1){
             inventory['wood'] = inventory['wood'] - 2 ;
             inventory['woodenAxe'] += 1;
             classDelete(inventoryBlocks);
             inventoryFill();  
         }
     }else if(instrument.classList.contains('woodenPick')){
-        if(inventory['wood'] > 2){
+        if(inventory['wood'] > 1){
             inventory['wood'] = inventory['wood'] - 2 ;
             inventory['woodenPick'] += 1;
             classDelete(inventoryBlocks);
