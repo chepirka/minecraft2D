@@ -13,20 +13,22 @@ let wooden_instrument = document.querySelector('.wooden_instrument');
 let stone_instrument = document.querySelector('.stone_instrument');
 let iron_instrument = document.querySelector('.iron_instrument');
 let diamond_instrument = document.querySelector('.diamond_instrument');
-let material = document.querySelectorAll('.fastCraftWindow__materials_material')
-let armor_block = document.querySelector('.armor_block')
-let inst;
+let material = document.querySelectorAll('.fastCraftWindow__materials_material');
+let armor_block = document.querySelector('.armor_block');
+let activeTool, draggedTool;
 
 armor_block.addEventListener('dragover', (e)=>{
     e.preventDefault();
 
 })
 armor_block.addEventListener('drop', (block)=>{
+    activeTool = draggedTool;
+    draggedTool = null;
     armorDelete(armor_block)
     armorDelete(steve)
-    console.log(inst)
-    armor_block.classList.add(inst)
-    steve.classList.add(inst)
+    console.log(activeTool)
+    armor_block.classList.add(activeTool)
+    steve.classList.add(activeTool)
 })
 
 const inventory = {
@@ -95,12 +97,36 @@ const tools = ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "i
 const toolInfo = {
     woodenAxe: {
         block: ['wood'],
-        demage: 1
+        damage: 1
     },
     woodenPick: {
         block: ['stone', 'coal'],
-        demage: 2
+        damage: 1
     },
+    stoneAxe: {
+        block: ['wood'],
+        damage: 2
+    },
+    stonePick: {
+        block: ['stone', 'coal', 'iron'],
+        damage: 3
+    },
+    ironAxe: {
+        block: ['wood'],
+        damage: 3
+    },
+    ironPick: {
+        block: ['stone', 'coal', 'iron', 'diamond'],
+        damage: 4
+    },
+    diamondAxe: {
+        block: ['wood'],
+        damage: 3
+    },
+    diamondPick: {
+        block: ['stone', 'coal', 'iron', 'diamond'],
+        damage: 6
+    }
 }
 
 const mapElementsLVL2p = {
@@ -109,14 +135,6 @@ const mapElementsLVL2p = {
     stone: 85,
     iron: 5,
     coal: 10
-};
-const mapElementsLVL3p = {
-    //Цифра - вероятность выпадения блока в %
-    //в сумме должно быть 100
-    stone: 75,
-    iron: 10,
-    coal: 10,
-    diamond: 5
 };
 
 const inventoryFill = () => {
@@ -128,8 +146,7 @@ const inventoryFill = () => {
                 if(inventoryBlocks[i].classList.contains(instrumentName)){
                     inventoryBlocks[i].setAttribute('draggable', true);
                     inventoryBlocks[i].addEventListener('dragstart', ()=>{
-                        console.log("f" + instrumentName)
-                        inst = instrumentName;
+                        draggedTool = instrumentName;
                     })
                 }
             })
@@ -168,6 +185,13 @@ const armorDelete = (elem)=>{
     })
 }
 
+const getActiveToolDmg = (blockType)=>{
+    if (toolInfo[activeTool] && toolInfo[activeTool]['block'].includes(blockType)){
+        return toolInfo[activeTool]['damage'];
+    }
+    return 1
+}
+
 let steve = document.createElement('div')
 steve.classList.add('steve_number')
 
@@ -182,14 +206,13 @@ const fillGame = function () {
         mapRow.forEach((item, j, arr) => {
             let block = document.createElement("div");
             let hp = 0;
-            console.log(item)
             block.classList.add("block");
             block.classList.add(item);
             if(block.classList.contains("Steve")){
                 block.append(steve)
             }
             block.addEventListener('click', () => {
-                hp++;
+                hp = hp + getActiveToolDmg(item);
                 if (hp >= hpMap[item]) {
                     hp = 0;
                     console.log(item);
@@ -293,8 +316,7 @@ const randomMapFill = (map)=>{
     for(let x = 0; x < 10; x++){
         map[x] = [];
         for(let i = 0; i < 15; i++){
-            map[x][i] = [];
-            map[x][i].push(getRandomElement());
+            map[x][i] = getRandomElement();
         }
     }
 
