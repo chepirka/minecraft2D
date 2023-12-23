@@ -65,10 +65,8 @@ const lvl1 =
     ];
 
 const lvl2 = [];
-const lvl3 = [];
 
-
-const lvls = [lvl1, lvl2, lvl3];
+const lvls = [lvl1, lvl2];
 let map = [];
 
 const setHPAtribute = (block, hp, i, j) => {
@@ -192,6 +190,22 @@ const getActiveToolDmg = (blockType)=>{
     return 1
 }
 
+const canIBreakBlock = (i, j)=>{
+    let py = Math.abs(stevePositionY - i)
+    let px = Math.abs(stevePositionX - j)
+    if(py === 1 || py === 0){
+        if(px === 1 || px === 0){
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    else{
+        
+    }
+}
+
 let steve = document.createElement('div')
 steve.classList.add('steve_number')
 
@@ -212,14 +226,16 @@ const fillGame = function () {
                 block.append(steve)
             }
             block.addEventListener('click', () => {
-                hp = hp + getActiveToolDmg(item);
-                if (hp >= hpMap[item]) {
-                    hp = 0;
-                    console.log(item);
-                    inventory[item] = inventory[item] ? inventory[item] + 1 : 1;
-                    console.log(inventory);
-                    map[i][j] = 'empty';;
-                    fillGame();
+                if(canIBreakBlock(i, j)){
+                    hp = hp + getActiveToolDmg(item);
+                    if (hp >= hpMap[item]) {
+                        hp = 0;
+                        console.log(item);
+                        inventory[item] = inventory[item] ? inventory[item] + 1 : 1;
+                        console.log(inventory);
+                        map[i][j] = 'empty';;
+                        fillGame();
+                    }
                 }
             })
             row.append(block);
