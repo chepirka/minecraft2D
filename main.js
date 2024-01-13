@@ -17,6 +17,9 @@ let material = document.querySelectorAll('.fastCraftWindow__materials_material')
 let armor_block = document.querySelector('.armor_block');
 let activeTool, draggedTool;
 
+const ROW_QUANTITY = 10;
+const COLUMN_QUANTITY = 15;
+
 armor_block.addEventListener('dragover', (e)=>{
     e.preventDefault();
 
@@ -126,14 +129,6 @@ const toolInfo = {
         damage: 6
     }
 }
-
-const mapElementsLVL2p = {
-    //Цифра - вероятность выпадения блока в %
-    //в сумме должно быть 100
-    stone: 85,
-    iron: 5,
-    coal: 10
-};
 
 const inventoryFill = () => {
     let i = 0
@@ -323,19 +318,24 @@ const getRandomElement = ()=>{
     else{
         b = 1;//b = iron
     }
-    return mapElements[b];
+    return Object.keys(mapElementsLVL2p)[b];
 };
 
-let mapElements = Object.keys(mapElementsLVL2p);
+const mapElementsLVL2p = {
+    //Цифра - вероятность выпадения блока в %
+    //в сумме должно быть 100
+    stone: 85,
+    iron: 5,
+    coal: 10
+};
 
 const randomMapFill = (map)=>{
-    for(let x = 0; x < 10; x++){
+    for(let x = 0; x < ROW_QUANTITY; x++){
         map[x] = [];
-        for(let i = 0; i < 15; i++){
+        for(let i = 0; i < COLUMN_QUANTITY; i++){
             map[x][i] = getRandomElement();
         }
     }
-
 };
 
 randomMapFill(lvl2);
