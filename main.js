@@ -17,7 +17,8 @@ let steve = document.createElement('div')
 steve.classList.add('steve_number')
 
 const lvl2 = [];
-const lvls = [lvl1, lvl2];
+const lvl3 = [];
+const lvls = [lvl1, lvl2, lvl3];
 
 const setHPAtribute = (block, hp, i, j) => {
     block.setAttribute('hp', hp);
