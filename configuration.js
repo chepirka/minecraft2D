@@ -24,9 +24,48 @@ const lvl1 =
         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
     ];
 
+const tools = ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"];
+
+const toolInfo = {
+    woodenAxe: {
+        block: ['wood'],
+        damage: 1
+    },
+    woodenPick: {
+        block: ['stone', 'coal'],
+        damage: 1
+    },
+    stoneAxe: {
+        block: ['wood'],
+        damage: 2
+    },
+    stonePick: {
+        block: ['stone', 'coal', 'iron'],
+        damage: 3
+    },
+    ironAxe: {
+        block: ['wood'],
+        damage: 3
+    },
+    ironPick: {
+        block: ['stone', 'coal', 'iron', 'diamond'],
+        damage: 4
+    },
+    diamondAxe: {
+        block: ['wood'],
+        damage: 3
+    },
+    diamondPick: {
+        block: ['stone', 'coal', 'iron', 'diamond'],
+        damage: 6
+    }
+}
+
     export {
         ROW_QUANTITY,
         COLUMN_QUANTITY,
         hpMap,
-        lvl1
+        lvl1,
+        tools,
+        toolInfo
     }

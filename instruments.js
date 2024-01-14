@@ -1,4 +1,5 @@
 import { activeTool, classDelete, inventory, inventoryBlocks, inventoryFill } from "./inventory.js";
+import { tools, toolInfo } from "./configuration.js";
 
 let axe = document.querySelector('.axe');
 let pick = document.querySelector('.pick');
@@ -8,43 +9,6 @@ let stone_instrument = document.querySelector('.stone_instrument');
 let iron_instrument = document.querySelector('.iron_instrument');
 let diamond_instrument = document.querySelector('.diamond_instrument');
 let material = document.querySelectorAll('.fastCraftWindow__materials_material');
-
-const tools = ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"];
-
-const toolInfo = {
-    woodenAxe: {
-        block: ['wood'],
-        damage: 1
-    },
-    woodenPick: {
-        block: ['stone', 'coal'],
-        damage: 1
-    },
-    stoneAxe: {
-        block: ['wood'],
-        damage: 2
-    },
-    stonePick: {
-        block: ['stone', 'coal', 'iron'],
-        damage: 3
-    },
-    ironAxe: {
-        block: ['wood'],
-        damage: 3
-    },
-    ironPick: {
-        block: ['stone', 'coal', 'iron', 'diamond'],
-        damage: 4
-    },
-    diamondAxe: {
-        block: ['wood'],
-        damage: 3
-    },
-    diamondPick: {
-        block: ['stone', 'coal', 'iron', 'diamond'],
-        damage: 6
-    }
-}
 
 const instrumentClassDelete = ()=>{
     instruments.forEach((item)=>{
