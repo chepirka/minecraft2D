@@ -75,7 +75,7 @@ const fillGame = function () {
                         console.log(item);
                         inventory[item] = inventory[item] ? inventory[item] + 1 : 1;
                         console.log(inventory);
-                        map[i][j] = 'empty';;
+                        map[i][j] = 'empty';
                         fillGame();
                     }
                 }
