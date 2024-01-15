@@ -1,11 +1,15 @@
-import { getActiveToolDmg } from "./instruments.js"; 
-import { inventory } from "./inventory.js";
+import {
+    getActiveToolDmg 
+} from "./instruments.js"; 
+import { 
+    inventory 
+} from "./inventory.js";
 import { 
     ROW_QUANTITY,
     COLUMN_QUANTITY,
     hpMap,
     lvl1
- } from "./configuration.js";
+} from "./configuration.js";
 
 let main = document.querySelector('.main');
 let stevePositionX = 3;

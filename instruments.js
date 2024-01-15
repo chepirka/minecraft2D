@@ -1,5 +1,14 @@
-import { activeTool, classDelete, inventory, inventoryBlocks, inventoryFill } from "./inventory.js";
-import { tools, toolInfo } from "./configuration.js";
+import { 
+        activeTool, 
+        classDelete, 
+        inventory, 
+        inventoryBlocks, 
+        inventoryFill 
+} from "./inventory.js";
+import { 
+    tools, 
+    toolInfo 
+} from "./configuration.js";
 
 let axe = document.querySelector('.axe');
 let pick = document.querySelector('.pick');
