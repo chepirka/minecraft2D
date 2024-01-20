@@ -1,11 +1,15 @@
-import { getActiveToolDmg } from "./instruments.js"; 
-import { inventory } from "./inventory.js";
+import {
+    getActiveToolDmg 
+} from "./instruments.js"; 
+import { 
+    inventory 
+} from "./inventory.js";
 import { 
     ROW_QUANTITY,
     COLUMN_QUANTITY,
     hpMap,
     lvl1
- } from "./configuration.js";
+} from "./configuration.js";
 
 let main = document.querySelector('.main');
 let stevePositionX = 3;
@@ -71,7 +75,7 @@ const fillGame = function () {
                         console.log(item);
                         inventory[item] = inventory[item] ? inventory[item] + 1 : 1;
                         console.log(inventory);
-                        map[i][j] = 'empty';;
+                        map[i][j] = 'empty';
                         fillGame();
                     }
                 }

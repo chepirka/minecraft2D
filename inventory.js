@@ -1,5 +1,10 @@
-import { tools, armorDelete } from "./instruments.js";
-import { steve } from "./main.js";
+import { 
+    tools, 
+    armorDelete 
+} from "./instruments.js";
+import { 
+    steve 
+} from "./main.js";
 
 let inventoryBlocks = document.querySelectorAll('.inventory_block');
 let inventoryModal = document.querySelector('.inventory');
