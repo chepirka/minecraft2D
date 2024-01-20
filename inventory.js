@@ -39,7 +39,7 @@ const inventory = {
     ironAxe: 0,
     ironPick: 0,
     diamondAxe: 0,
-    diamondPick: 0
+    diamondPick: 1
 };
 
 const inventoryFill = () => {

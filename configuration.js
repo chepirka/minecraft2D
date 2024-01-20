@@ -6,9 +6,9 @@ const hpMap = {
     ground: 2,
     wood: 3,
     leaf: 1,
-    stone: 5,
-    iron: 12,
-    coal: 8
+    stone: 1,//5
+    iron: 1,//12
+    coal: 1//8
 };
 const lvl1 =
     [

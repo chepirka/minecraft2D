@@ -11,14 +11,14 @@ let main = document.querySelector('.main');
 let stevePositionX = 3;
 let stevePositionY = 6;
 
-let currentLvl = 0;
-let map = [];
 let steve = document.createElement('div')
 steve.classList.add('steve_number')
 
-const lvl2 = [];
-const lvl3 = [];
-const lvls = [lvl1, lvl2, lvl3];
+let currentLvl = 0;
+let map = [];
+const lvls = [lvl1];
+const maxMapLvl = 10;
+
 
 const setHPAtribute = (block, hp, i, j) => {
     block.setAttribute('hp', hp);
@@ -167,8 +167,15 @@ const randomMapFill = (map)=>{
         }
     }
 };
-
-randomMapFill(lvl2);
+const autoMapFill = ()=>{
+    for(let i = 1; i < maxMapLvl; i++){
+        const randomLvl = [];
+        randomMapFill(randomLvl)
+        lvls.push(randomLvl)
+        console.log(lvls)
+    }
+}
+autoMapFill()
 
 export{
     steve
