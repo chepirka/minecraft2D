@@ -23,7 +23,6 @@ let map = [];
 const lvls = [lvl1];
 const maxMapLvl = 10;
 
-
 const setHPAtribute = (block, hp, i, j) => {
     block.setAttribute('hp', hp);
     block.addEventListener('click', () => {
@@ -139,7 +138,7 @@ document.addEventListener('keydown', function (event) {
     }
 });
 
-const getRandomElement = ()=>{
+const getRandomElement1 = ()=>{
     let k = Math.random();
     let b;
 
@@ -147,27 +146,80 @@ const getRandomElement = ()=>{
         b = 0;//b = stone
     }
     else if(k > 0.85 && k < 0.95){
-        b = 2;//b = coal
+        b = 1;//b = coal
     }
     else{
-        b = 1;//b = iron
+        b = 2;//b = iron
     }
-    return Object.keys(mapElementsLVL2p)[b];
+    return Object.keys(mapElementsLVL1)[b];
+};
+const getRandomElement2 = ()=>{
+    let k = Math.random();
+    let b;
+
+    if(k < 0.6){
+        b = 0;//b = stone
+    }
+    else if(k > 0.6 && k < 0.82){
+        b = 1;//b = coal
+    }
+    else if(k > 0.82 && k < 0.97){
+        b = 2;//b = iron
+    }
+    else{
+        b = 3;// b = diamond
+    }
+    return Object.keys(mapElementsLVL2)[b];
+};
+const getRandomElement3 = ()=>{
+    let k = Math.random();
+    let b;
+
+    if(k < 0.55){
+        b = 0;//b = stone
+    }
+    else if(k > 0.55 && k < 0.85){
+        b = 1;//b = coal
+    }
+    else if(k > 0.85 && k < 0.95){
+        b = 2;//b = iron
+    }
+    else{
+        b= 3;//b = diamond
+    }
+    return Object.keys(mapElementsLVL3)[b];
 };
 
-const mapElementsLVL2p = {
+const mapElementsLVL1 = {
     //Цифра - вероятность выпадения блока в %
     //в сумме должно быть 100
     stone: 85,
-    iron: 5,
-    coal: 10
+    coal: 10,
+    iron: 5
+
+};
+const mapElementsLVL2 = {
+    //Цифра - вероятность выпадения блока в %
+    //в сумме должно быть 100
+    stone: 60,
+    coal: 22,
+    iron: 15,
+    diamond: 3
+};
+const mapElementsLVL3 = {
+    //Цифра - вероятность выпадения блока в %
+    //в сумме должно быть 100
+    stone: 55,
+    coal: 30,
+    iron: 10,
+    diamond: 5
 };
 
 const randomMapFill = (map)=>{
     for(let x = 0; x < ROW_QUANTITY; x++){
         map[x] = [];
         for(let i = 0; i < COLUMN_QUANTITY; i++){
-            map[x][i] = getRandomElement();
+            map[x][i] = getRandomElement1();
         }
     }
 };
