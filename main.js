@@ -45,9 +45,6 @@ const canIBreakBlock = (i, j)=>{
             return false
         }
     }
-    else{
-        
-    }
 }
 
 const fillGame = function () {
