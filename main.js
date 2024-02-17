@@ -164,7 +164,7 @@ const getRandomElement2 = ()=>{
         b = 2;//b = iron
     }
     else{
-        b = 3;// b = diamond
+        b = 3;//b = diamond
     }
     return Object.keys(mapElementsLVL2)[b];
 };
