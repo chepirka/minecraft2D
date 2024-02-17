@@ -136,7 +136,7 @@ document.addEventListener('keydown', function (event) {
             fillGame();
         }
     }
-});
+}); 
 
 const getRandomElement1 = ()=>{
     let k = Math.random();
