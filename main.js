@@ -212,11 +212,22 @@ const mapElementsLVL3 = {
     diamond: 5
 };
 
+let n = 1;
+
 const randomMapFill = (map)=>{
+    n++
     for(let x = 0; x < ROW_QUANTITY; x++){
         map[x] = [];
         for(let i = 0; i < COLUMN_QUANTITY; i++){
-            map[x][i] = getRandomElement1();
+            if(n<=4){
+                map[x][i] = getRandomElement1();
+            }
+            else if(n>4 && n<7){
+                map[x][i] = getRandomElement2();
+            }
+            else{
+                map[x][i] = getRandomElement3();
+            }
         }
     }
 };

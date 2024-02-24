@@ -10,19 +10,46 @@ const hpMap = {
     iron: 1,//12
     coal: 1//8
 };
-const lvl1 =
+//wood, leaf, empty
+const lvl1 = 
+//     [
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "empty", "empty", "empty", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "leaf", "leaf", "empty", "empty", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "leaf", "wood", "leaf", "leaf", "empty", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wood", "empty", "empty", "empty", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wood", "empty", "empty", "empty", "empty"],
+//         ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+//         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"],
+//         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
+//     ];
+// FirstLocation =
+//     [
+//         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "empty"],
+//         ["empty", "empty", "empty", "empty", "empty", "leaf", "empty", "empty", "empty", "empty", "empty", "leaf", "leaf", "leaf", "leaf"],
+//         ["empty", "empty", "empty", "empty", "leaf", "leaf", "leaf", "empty", "leaf", "empty", "leaf", "leaf", "leaf", "wood", "leaf"],
+//         ["empty", "empty", "empty", "leaf", "leaf", "wood", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf", "wood", "leaf"],
+//         ["empty", "empty", "leaf", "leaf", "wood", "wood", "leaf", "leaf", "wood", "leaf", "wood", "leaf", "leaf", "wood", "empty"],
+//         ["empty", "empty", "empty", "empty", "wood", "wood", "empty", "empty", "wood", "empty", "wood", "empty", "empty", "wood", "empty"],
+//         ["empty", "empty", "empty", "empty", "wood", "wood", "empty", "empty", "wood", "empty", "wood", "empty", "empty", "wood", "empty"],
+//         ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
+//         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"],
+//         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
+//     ];
     [
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "empty", "empty", "empty", "empty"],
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "leaf", "leaf", "empty", "empty", "empty"],
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "leaf", "leaf", "wood", "leaf", "leaf", "empty", "empty"],
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wood", "empty", "empty", "empty", "empty"],
-        ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "wood", "empty", "empty", "empty", "empty"],
+        ["empty", "empty", "empty", "empty", "leaf", "empty", "empty", "empty", "empty", "empty", "leaf", "empty", "empty", "leaf", "empty"],
+        ["empty", "leaf", "empty", "leaf", "leaf", "leaf", "empty", "leaf", "empty", "leaf", "leaf", "leaf", "leaf", "leaf", "leaf"],
+        ["leaf", "leaf", "leaf", "leaf", "wood", "leaf", "leaf", "leaf", "leaf", "leaf", "wood", "leaf", "leaf", "wood", "leaf"],
+        ["leaf", "wood", "leaf", "leaf", "wood", "leaf", "leaf", "wood", "leaf", "leaf", "wood", "leaf", "wood", "wood", "leaf"],
+        ["empty", "wood", "leaf", "wood", "wood", "leaf", "leaf", "wood", "wood", "leaf", "wood", "leaf", "wood", "wood", "empty"],
+        ["empty", "wood", "empty", "wood", "wood", "empty", "empty", "wood", "wood", "empty", "wood", "empty", "wood", "wood", "empty"],
+        ["empty", "wood", "empty", "wood", "wood", "empty", "empty", "wood", "wood", "empty", "wood", "empty", "wood", "wood", "empty"],
         ["grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass", "grass"],
         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"],
-        ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
+        ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]  
     ];
+
 
 const tools = ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"];
 

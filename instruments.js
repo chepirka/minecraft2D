@@ -124,7 +124,7 @@ const craft = (instrument)=>{
         mat('iron', 'ironAxe')
     }else if(instrument.classList.contains('ironPick')){
         mat('iron', 'ironPick')
-    }else if(instrument.classList.contains('diamondAxe')){
+    }else if(instrument.classList.contains('diamondAxe')){  
         mat('diamond', 'diamondAxe')
     }else if(instrument.classList.contains('diamondPick')){
         mat('diamond', 'diamondPick')
