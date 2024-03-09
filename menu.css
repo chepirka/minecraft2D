@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Changa", sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background: url(img/menu.jpg)center center / cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.playBox{
+    width: 400px;
+    height: 200px;
+}
+.play{
+    width: 400px;
+    height: 40px;
+    border: 2px solid black;
+    margin-top: 10px;
+    background-color: grey;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(204, 204, 204);
+    text-decoration: none;
+}
+.settingsBox{
+    width: 400px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.settings{
+    width: 195px;
+    height: 40px;
+    border:2px solid black;
+    margin: 2px;
+    background-color: grey;
+    color: rgb(204, 204, 204);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
