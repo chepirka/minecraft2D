@@ -8,15 +8,22 @@ import {
     ROW_QUANTITY,
     COLUMN_QUANTITY,
     hpMap,
-    lvl1
+    lvl1,
+    getRandomInt,
+    lvllr,
+    FirstLocation,
+    SecondLocation,
+    ThirdLocation,
+    FourthLocation,
+    FithLocation
 } from "./configuration.js";
 
 let main = document.querySelector('.main');
 let stevePositionX = 3;
 let stevePositionY = 6;
 
-let steve = document.createElement('div')
-steve.classList.add('steve_number')
+let steve = document.createElement('div');
+steve.classList.add('steve_number');
 
 let currentLvl = 0;
 let map = [];
@@ -35,14 +42,14 @@ const setHPAtribute = (block, hp, i, j) => {
 };
 
 const canIBreakBlock = (i, j)=>{
-    let py = Math.abs(stevePositionY - i)
-    let px = Math.abs(stevePositionX - j)
+    let py = Math.abs(stevePositionY - i);
+    let px = Math.abs(stevePositionX - j);
     if(py === 1 || py === 0){
         if(px === 1 || px === 0){
-            return true
+            return true;
         }
         else{
-            return false
+            return false;
         }
     }
 }
@@ -68,9 +75,7 @@ const fillGame = function () {
                     hp = hp + getActiveToolDmg(item);
                     if (hp >= hpMap[item]) {
                         hp = 0;
-                        console.log(item);
                         inventory[item] = inventory[item] ? inventory[item] + 1 : 1;
-                        console.log(inventory);
                         map[i][j] = 'empty';
                         fillGame();
                     }
@@ -112,10 +117,22 @@ document.addEventListener('keydown', function (event) {
 
 document.addEventListener('keydown', function (event) {
     if (event.code === 'KeyD') {
-        if (map[stevePositionY][stevePositionX + 1] === "empty") {
-            map[stevePositionY][stevePositionX] = 'empty';
-            stevePositionX = stevePositionX + 1;
-            fillGame();
+        if(map[stevePositionY][stevePositionX + 1]){
+            if (map[stevePositionY][stevePositionX + 1] === "empty") {
+                map[stevePositionY][stevePositionX] = 'empty';
+                stevePositionX = stevePositionX + 1;
+                fillGame();
+            }
+        }
+        else{
+            let c = getRandomInt(0, 4);
+            currentPosition++
+            // for(let x = 0; x < ROW_QUANTITY; x++){
+            //     [x] = [];
+            //     for(let i = 0; i < COLUMN_QUANTITY; i++){
+            //         map[x][i] = 
+            //     }
+            // }
         }
     }
 });
@@ -236,10 +253,15 @@ const autoMapFill = ()=>{
         const randomLvl = [];
         randomMapFill(randomLvl)
         lvls.push(randomLvl)
-        console.log(lvls)
     }
 }
 autoMapFill()
+let currentPosition = 0;
+
+let currentMap = 
+    {
+        0: lvl1                    
+    }
 
 export{
     steve

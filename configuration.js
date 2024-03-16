@@ -10,7 +10,7 @@ const hpMap = {
     iron: 1,//12
     coal: 1//8
 };
-//wood, leaf, empty
+
 const lvl1 = 
     [
         ["empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
@@ -89,7 +89,7 @@ const FithLocation =
         ["ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground", "ground"]
     ]; 
 
-const lvllr = [lvl1, FirstLocation, SecondLocation, ThirdLocation, FourthLocation, FithLocation];
+const lvllr = [FirstLocation, SecondLocation, ThirdLocation, FourthLocation, FithLocation];
 
 const tools = ["woodenAxe", "woodenPick", "stoneAxe", "stonePick", "ironAxe", "ironPick", "diamondAxe", "diamondPick"];
 
@@ -128,11 +128,22 @@ const toolInfo = {
     }
 }
 
+const getRandomInt = (min, max)=>{
+	console.log(Math.floor(Math.random() * (max - min + 1)) + min);
+}
+
     export {
         ROW_QUANTITY,
         COLUMN_QUANTITY,
         hpMap,
         lvl1,
         tools,
-        toolInfo
+        toolInfo,
+        getRandomInt,
+        lvllr,
+        FirstLocation,
+        SecondLocation,
+        ThirdLocation,
+        FourthLocation,
+        FithLocation
     }
